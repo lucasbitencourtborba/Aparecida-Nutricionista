@@ -47,6 +47,18 @@ function validaAltura(altura){
     } else return true
 }
 
+function validaNome(nome){
+    if (nome.length > 0){
+        return true
+    } else return false
+}
+
+function validaPercentualGordura(percentual) {
+    if (percentual > 0){
+        return true
+    } else return false
+}
+
 
 function calcularImc(peso, altura) {
     const imc = peso / Math.pow(altura, 2);
