@@ -13,6 +13,9 @@ botaoAddPaciente.addEventListener("click", function (event) {
     
     tabela.appendChild(pacienteTr)
     formulario.reset()
+    const ul = document.querySelector("#mensagem-erro")
+    ul.innerHTML = ""
+
 })
 
 function obterPacienteDoFormulario (formulario){
