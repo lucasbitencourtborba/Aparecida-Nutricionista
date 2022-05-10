@@ -80,6 +80,11 @@ label{
 	text-align: center;
 }
 
+.input-filtro{
+	padding: 0.2rem;
+	margin-bottom: 1rem;
+}
+
 .campo{
 	margin: 0;
 	padding-bottom: 1em;
@@ -147,4 +152,15 @@ button[disabled=disabled], button:disabled {
 	background-color: lightcoral;
 
 }
+
+.fadeOut{
+	opacity: 0;
+	transition: 0.8s;
+}
+
+.invisivel{
+    display: none;
+}
+
+
 
