@@ -6,7 +6,14 @@ botao.addEventListener("click", function(){
     xhr.open("get", "https://api-pacientes.herokuapp.com/pacientes")
 
     xhr.addEventListener("load", function(){
-        console.log(xhr.responseText)
+        const respostaApi = xhr.responseText
+        const pacientesApi = JSON.parse(respostaApi)
+        
+        pacientesApi.forEach(function(paciente){
+            adicionaPacienteNaTabela(paciente)
+        })
+
+        adicionaPacienteNaTabela(paciente)
     })
 
     xhr.send()

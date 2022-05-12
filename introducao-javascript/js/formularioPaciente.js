@@ -1,9 +1,7 @@
 botaoAddPaciente.addEventListener("click", function (event) {
     event.preventDefault();
     const formulario = document.querySelector("#form-adiciona");
-
     const paciente = obterPacienteDoFormulario(formulario)
-    const pacienteTr = criarTrPaciente(paciente)
     const erro = validaPaciente(paciente)
 
     if(erro.length > 0){
@@ -11,19 +9,26 @@ botaoAddPaciente.addEventListener("click", function (event) {
         return;
     }
     
-    tabela.appendChild(pacienteTr)
+    adicionaPacienteNaTabela(paciente)
+    
     formulario.reset()
     const ul = document.querySelector("#mensagem-erro")
     ul.innerHTML = ""
 
 })
 
+function adicionaPacienteNaTabela(paciente){
+    const tabela = document.querySelector("#tabela-pacientes")
+    const pacienteTr = criarTrPaciente(paciente)
+    tabela.appendChild(pacienteTr)
+}
+
 function obterPacienteDoFormulario (formulario){
     const paciente = {
         nome: formulario.nome.value,
         peso: formulario.peso.value,
         altura: formulario.altura.value,
-        percentualGordura: formulario.gordura.value,
+        gordura: formulario.gordura.value,
         imc: calcularImc(formulario.peso.value, formulario.altura.value)
     }
 
@@ -48,7 +53,7 @@ function criarTrPaciente(paciente) {
     pacienteTr.appendChild(montaTd(paciente.nome, "info-nome"));
     pacienteTr.appendChild(montaTd(paciente.peso, "info-peso"));
     pacienteTr.appendChild(montaTd(paciente.altura, "info-altura"));
-    pacienteTr.appendChild(montaTd(paciente.percentualGordura, "info-gordura"));
+    pacienteTr.appendChild(montaTd(paciente.gordura, "info-gordura"));
     pacienteTr.appendChild(montaTd(paciente.imc, "info-nome"));
 
     return pacienteTr
@@ -70,7 +75,7 @@ function validaPaciente(paciente) {
         erros.push("O nome não pode ser em branco");
     }
 
-    if (paciente.percentualGordura.length == 0) {
+    if (paciente.gordura.length == 0) {
         erros.push("A gordura não pode ser em branco");
     }
 
