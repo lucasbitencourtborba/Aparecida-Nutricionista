@@ -12,8 +12,6 @@ botao.addEventListener("click", function(){
         pacientesApi.forEach(function(paciente){
             adicionaPacienteNaTabela(paciente)
         })
-
-        adicionaPacienteNaTabela(paciente)
     })
 
     xhr.send()
